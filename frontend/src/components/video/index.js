@@ -9,10 +9,28 @@ import MainNav from '../App/MainNav';
 import ImageCarousel from './carousel';
 
 class Video extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = { date: new Date() };
-    // }
+  
+   sign_images = [{
+          "name":"A",
+          "image":"https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+        },
+        {
+          "name":"B",
+          "image":"https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+        },
+        {
+          "name":"C",
+          "image":"https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+        },
+      ]
+    constructor(props) {
+        super(props);
+        this.state = { 
+          selected_image : this.sign_images[0],
+          total_questions : this.sign_images.length,
+          correct_count: 0,
+        };
+    }
     
     model = null;
     
@@ -73,15 +91,21 @@ class Video extends React.Component {
             this.startVideo();
         });
     }
-
+    
+    myCallback = (data) =>{
+      this.setState({ selected_image: data});
+      debugger;
+    }
+    
     render() {
         var alph = new Array(26).fill(0);
         var i;
         for(i = 65; i < 91; i=i+1) {
           alph[i-65] = String.fromCharCode(i);
         };
+      
+
         return (
-          
             <div>
               {/* <div>
                     <MainNav/> 
@@ -166,7 +190,7 @@ class Video extends React.Component {
 
                 </div>
                 <div className="card-body">
-                  <ImageCarousel></ImageCarousel>
+                  <ImageCarousel imageList={this.sign_images} callbackFromParent={this.myCallback}></ImageCarousel>
                 {/* <img  id = "static_img" src="https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg" className="img-thumbnail" alt="Responsive image"></img> */}
                 {/* <img id="thumbnail_img"></img>  */}
                 </div>
@@ -182,7 +206,7 @@ class Video extends React.Component {
                     <div className="col mr-2">
                       <div>
                       <Question content="Do the sign for the following letter: " />
-                      <div>{alph}</div>
+                      <div>{this.state.selected_image.name}</div>
                       </div>
                     </div>
                     <div className="col-auto">

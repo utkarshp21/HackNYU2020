@@ -44,3 +44,7 @@ h1 {
 .next-prev{
   padding: 2.5em !important;
 }
+
+.carousel-indicators{
+  display: none !important;
+}

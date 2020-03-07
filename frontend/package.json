@@ -40,6 +40,7 @@
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
+    "react-responsive-carousel": "^3.1.51",
     "vendor": "^1.7.0"
   },
   "browserslist": [
