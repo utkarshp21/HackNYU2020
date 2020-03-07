@@ -8,7 +8,7 @@ const App = () => {
   return (
     <main className="App">
       <Video/>
-      <MainNav/>
+      {/* <MainNav/> */}
     </main>
   );
 };

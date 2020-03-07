@@ -1,18 +1,18 @@
 import React from 'react';
 import * as handTrack from 'handtrackjs';
 const axios = require("axios");
-import { Button } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom';
 import Question from '../App/Question';
 import MainNav from '../App/MainNav';
-
+import ImageCarousel from './carousel';
 
 class Video extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { date: new Date() };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = { date: new Date() };
+    // }
     
     model = null;
     
@@ -34,16 +34,14 @@ class Video extends React.Component {
                 const dataURL = canvas.toDataURL();
 
                 // set the source of the img tag
-                const img = document.getElementById('thumbnail_img');
-                img.setAttribute('src', dataURL);
+                // const img = document.getElementById('thumbnail_img');
+                // img.setAttribute('src', dataURL);
 
-                axios.post("http://localhost:3000/post_image", { "img": dataURL })
-                    .then((response) => {
-                        debugger;
-                        console.log("The file is successfully uploaded");
-                    }).catch((error) => {
-                        debugger;
-                    });
+                // axios.post("http://localhost:3000/post_image", { "img": dataURL })
+                //     .then((response) => {
+                //         console.log("The file is successfully uploaded");
+                //     }).catch((error) => {
+                //     });
                 
             }
             
@@ -89,7 +87,7 @@ class Video extends React.Component {
                     <MainNav/> 
                 </div> */}
                 <div class container>
-                  <div class = "row">
+                  <div className = "row">
                     <div className="col-md-12">
                     <div className="text-xs font-weight-bold text-uppercase mb-1">
                       <h1>SIGN AI</h1>
@@ -154,7 +152,7 @@ class Video extends React.Component {
 
                 </div>
                 <div className="card-body">
-                <video className="videobox  border canvasbox" id = "canvas" autoPlay="autoPlay" id="webcam"></video>
+                <video className="videobox  border canvasbox" autoPlay="autoPlay" id="webcam"></video>
                 <canvas id="canvas" className="border canvasbox"></canvas>
                 {/* <img id="thumbnail_img"></img>  */}
                 </div>
@@ -164,12 +162,13 @@ class Video extends React.Component {
             <div className="col-md-6">
               <div className="card shadow mb-4">
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 className="m-0 font-weight-bold text-primary">Image</h6>
+                <h6 className="m-0 font-weight-bold text-primary">Sign</h6>
 
                 </div>
                 <div className="card-body">
-                <img  id = "static_img" src="https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg" class="img-thumbnail" alt="Responsive image"></img>
-                <img id="thumbnail_img"></img> 
+                  <ImageCarousel></ImageCarousel>
+                {/* <img  id = "static_img" src="https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg" className="img-thumbnail" alt="Responsive image"></img> */}
+                {/* <img id="thumbnail_img"></img>  */}
                 </div>
 
                 </div>
@@ -177,11 +176,10 @@ class Video extends React.Component {
                 <div className='container'>
               <div className = 'row'>           
                 <div className="col-md-12">
-              <div className="card border-left-success shadow h-100 py-2">
-                <div className="card-body">
+              <div className="card border-left-success shadow h-200 py-2">
+                <div className="card-body next-prev">
                   <div className="row no-gutters align-items-center">
                     <div className="col mr-2">
-                      {/* <div class="text-xs font-weight-bold text-success text-uppercase mb-1"style={{backgroundColor:'blue'}}>SENTENCE</div> */}
                       <div>
                       <Question content="Do the sign for the following letter: " />
                       <div>{alph}</div>

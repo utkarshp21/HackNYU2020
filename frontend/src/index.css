@@ -6,3 +6,41 @@ h1 {
   font-size: 2rem;
   margin-bottom: 1em;
 }
+
+#webcam{
+  display: None;
+}
+
+.carousel-control-prev{
+    display: block !important;
+    width: 101px !important;
+    height: 33px !important;
+    background: #23788d;
+    padding: 10px !important;
+    text-align: center !important;
+    border-radius: 5px !important;
+    color: white !important;
+    font-weight: bold !important;
+    position: absolute !important;
+    top: 29em !important;
+    left: -25em !important;
+}
+
+.carousel-control-next{
+    display: block !important;
+    width: 101px !important;
+    height: 33px !important;
+    background: #23788d;
+    padding: 10px !important;
+    text-align: center !important;
+    border-radius: 5px !important;
+    color: white !important;
+    font-weight: bold !important;
+    position: absolute !important;
+    top: 29em !important;
+    left: 15em !important;
+}
+
+.next-prev{
+  padding: 2.5em !important;
+}
