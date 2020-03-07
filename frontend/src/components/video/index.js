@@ -11,7 +11,7 @@ class Video extends React.Component {
         super(props);
         this.state = { date: new Date() };
     }
-
+    
     model = null;
     
     runDetection() {
@@ -76,14 +76,15 @@ class Video extends React.Component {
 
     render() {
         return (
+          
             
             <div>
                 <div class container>
                 <h1>Sign AI</h1>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
 
-                <div class="col-xl-3 col-md-6 mb-4">
+                <div class="col-md-4 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -99,7 +100,7 @@ class Video extends React.Component {
               </div>
             </div>
 
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-md-4 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -114,7 +115,7 @@ class Video extends React.Component {
                 </div>
               </div>
             </div> 
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-md-4 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -132,7 +133,7 @@ class Video extends React.Component {
             </div>
             <div class='container'>
             <div class='row'>
-            <div class="col-md">
+            <div class="col-md-6">
               <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Replicate Sign</h6>
@@ -146,7 +147,7 @@ class Video extends React.Component {
                             
             </div>
             </div>
-            <div class="col-md">
+            <div class="col-md-6">
               <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
@@ -154,11 +155,28 @@ class Video extends React.Component {
                 </div>
                 <div class="card-body">
                 <img id = "thumbnail_img" src="https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg" class="img-thumbnail" alt="Responsive image"></img>
+                </div>
 
                 </div>
-                            
-
-            </div>
+                </div>
+                <div class='container'>
+              <div class = 'row'>           
+                <div class="col-md-12">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">SENTENCE</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">signs</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            </div> 
             </div>
             </div>
             </div>
