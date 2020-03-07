@@ -1,5 +1,6 @@
 import React from 'react';
 import * as handTrack from 'handtrackjs';
+const axios = require("axios");
 
 class Video extends React.Component {
     constructor(props) {
@@ -29,6 +30,15 @@ class Video extends React.Component {
                 // set the source of the img tag
                 const img = document.getElementById('thumbnail_img');
                 img.setAttribute('src', dataURL);
+
+                axios.post("http://localhost:3000/post_image", { "img": dataURL })
+                    .then((response) => {
+                        debugger;
+                        console.log("The file is successfully uploaded");
+                    }).catch((error) => {
+                        debugger;
+                    });
+                
             }
             
             console.log("Predictions: ", predictions);
