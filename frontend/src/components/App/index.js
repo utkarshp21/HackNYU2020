@@ -8,10 +8,7 @@ const App = () => {
   return (
     <main className="App">
       <Video/>
-      <div>
-      <Question content="What is your favourite food?" />
-      </div>
-      {/* <MainNav/> */}
+      <MainNav/>
     </main>
   );
 };

@@ -4,6 +4,8 @@ const axios = require("axios");
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom';
+import Question from '../App/Question';
+import MainNav from '../App/MainNav';
 
 
 class Video extends React.Component {
@@ -75,71 +77,83 @@ class Video extends React.Component {
     }
 
     render() {
+        var alph = new Array(26).fill(0);
+        var i;
+        for(i = 65; i < 91; i=i+1) {
+          alph[i-65] = String.fromCharCode(i);
+        };
         return (
           
-            
             <div>
+              {/* <div>
+                    <MainNav/> 
+                </div> */}
                 <div class container>
-                <h1>Sign AI</h1>
+                  <div class = "row">
+                    <div className="col-md-12">
+                    <div className="text-xs font-weight-bold text-uppercase mb-1">
+                      <h1>SIGN AI</h1>
+                      </div>
                 </div>
-                <div class="row mt-4">
-
-                <div class="col-md-4 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Correct</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                </div>
+                </div>
+                <div className="row mt-4">
+                <div className="col-md-4 mb-4">
+              <div className="card border-left-primary shadow h-100 py-2">
+                <div className="card-body">
+                  <div className="row no-gutters align-items-center">
+                    <div className="col mr-2">
+                      <div className="text-xs font-weight-bold text-success text-uppercase mb-1">Correct</div>
+                      <div className="h5 mb-0 font-weight-bold text-gray-800">0</div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    <div className="col-auto">
+                      <i className="fas fa-calendar fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Incorrect</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">signs</div>
+            <div className="col-md-4 mb-4">
+              <div className="card border-left-success shadow h-100 py-2">
+                <div className="card-body">
+                  <div className="row no-gutters align-items-center">
+                    <div className="col mr-2">
+                      <div className="text-xs font-weight-bold text-danger text-uppercase mb-1">Incorrect</div>
+                      <div className="h5 mb-0 font-weight-bold text-gray-800">0</div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    <div className="col-auto">
+                      <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div> 
-            <div class="col-md-4 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Score</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">signs</div>
+            <div className="col-md-4 mb-4">
+              <div className="card border-left-success shadow h-100 py-2">
+                <div className="card-body">
+                  <div className="row no-gutters align-items-center">
+                    <div className="col mr-2">
+                      <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Score</div>
+                      <div className="h5 mb-0 font-weight-bold text-gray-800">0</div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    <div className="col-auto">
+                      <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div> 
             </div>
-            <div class='container'>
-            <div class='row'>
-            <div class="col-md-6">
-              <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Replicate Sign</h6>
+            <div className='container'>
+            <div className='row'>
+            <div className="col-md-6">
+              <div className="card shadow mb-4">
+            <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 className="m-0 font-weight-bold text-primary">Replicate Sign</h6>
 
                 </div>
-                <div class="card-body">
+                <div className="card-body">
                 <video className="videobox  border canvasbox" id = "canvas" autoPlay="autoPlay" id="webcam"></video>
                 <canvas id="canvas" className="border canvasbox"></canvas>
                 {/* <img id="thumbnail_img"></img>  */}
@@ -147,30 +161,34 @@ class Video extends React.Component {
                             
             </div>
             </div>
-            <div class="col-md-6">
-              <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+            <div className="col-md-6">
+              <div className="card shadow mb-4">
+            <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 className="m-0 font-weight-bold text-primary">Image</h6>
 
                 </div>
-                <div class="card-body">
-                <img id = "thumbnail_img" src="https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg" class="img-thumbnail" alt="Responsive image"></img>
+                <div className="card-body">
+                <img  id = "static_img" src="https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg" class="img-thumbnail" alt="Responsive image"></img>
+                <img id="thumbnail_img"></img> 
                 </div>
 
                 </div>
                 </div>
-                <div class='container'>
-              <div class = 'row'>           
-                <div class="col-md-12">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">SENTENCE</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">signs</div>
+                <div className='container'>
+              <div className = 'row'>           
+                <div className="col-md-12">
+              <div className="card border-left-success shadow h-100 py-2">
+                <div className="card-body">
+                  <div className="row no-gutters align-items-center">
+                    <div className="col mr-2">
+                      {/* <div class="text-xs font-weight-bold text-success text-uppercase mb-1"style={{backgroundColor:'blue'}}>SENTENCE</div> */}
+                      <div>
+                      <Question content="Do the sign for the following letter: " />
+                      <div>{alph}</div>
+                      </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    <div className="col-auto">
+                      <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
