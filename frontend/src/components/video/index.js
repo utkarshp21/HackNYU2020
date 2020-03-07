@@ -1,6 +1,7 @@
 import React from 'react';
 import * as handTrack from 'handtrackjs';
 const axios = require("axios");
+import { Button } from 'react-bootstrap';
 
 class Video extends React.Component {
     constructor(props) {
@@ -73,7 +74,8 @@ class Video extends React.Component {
     render() {
         return (
             <div>
-                <h1>Sign AI!</h1>
+                <h1>Sign !</h1>
+                <Button variant="primary" className="mr-2">Primary</Button>
                 <video className="videobox canvasbox" autoPlay="autoPlay" id="webcam"></video>
                 <canvas id="canvas" className="border canvasbox"></canvas>
                 <img id="thumbnail_img"></img>
