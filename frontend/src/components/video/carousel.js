@@ -12,6 +12,7 @@ class ImageCarousel extends React.Component {
     }
     
     render() {
+
         const handleSelect = (selectedIndex, e) => {
             this.props.callbackFromParent(this.props.imageList[selectedIndex]);
         };
@@ -23,11 +24,11 @@ class ImageCarousel extends React.Component {
                     alt={image.name}
                     />
                     <Carousel.Caption>
-                    <h3>{image.name}</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    {/* <h3>{image.name}</h3> */}
                     </Carousel.Caption>
                 </Carousel.Item>);
         return (
+
             <Carousel onSelect={handleSelect} slide="false" interval="false" touch="false" pauseOnHover="true">
                 {imageListItems}
             </Carousel>
