@@ -265,15 +265,13 @@ class Video extends React.Component {
             <div className="col-md-6">
               <div className="card shadow mb-4">
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 className="m-0 font-weight-bold text-primary">Replicate Sign</h6>
-
+                <h6 className="m-0 font-weight-bold text-primary">Replicate Sign</h6>
                 </div>
                 <div className="card-body">
                 <video className="videobox  border canvasbox" autoPlay="autoPlay" id="webcam"></video>
                 <canvas id="canvas" className="border canvasbox"></canvas>
                 {/* <img id="thumbnail_img"></img>  */}
-                </div>
-                            
+                </div>           
             </div>
             </div>
             <div className="col-md-6">

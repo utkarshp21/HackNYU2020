@@ -18,7 +18,7 @@ class ImageCarousel extends React.Component {
 
         const imageListItems = this.props.imageList.map((image) => <Carousel.Item>
                     <img
-                    className="d-block w-100"
+                    className="d-block w-100 carousel_image"
                     src={image.image}
                     alt={image.name}
                     />

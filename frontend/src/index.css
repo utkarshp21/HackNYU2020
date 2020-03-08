@@ -48,3 +48,11 @@ h1 {
 .carousel-indicators{
   display: none !important;
 }
+
+.carousel_image{
+  height: 400px;
+}
+
+#canvas{
+  height: 400px;
+}
