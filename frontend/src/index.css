@@ -12,7 +12,7 @@ h1 {
 }
 
 .carousel-control-prev{
-    display: block !important;
+    display: None !important;
     width: 101px !important;
     height: 33px !important;
     background: #23788d;
@@ -23,7 +23,7 @@ h1 {
     font-weight: bold !important;
     position: absolute !important;
     top: 29em !important;
-    left: -25em !important;
+    left: -36em !important;
 }
 
 .carousel-control-next{
@@ -38,7 +38,7 @@ h1 {
     font-weight: bold !important;
     position: absolute !important;
     top: 29em !important;
-    left: 15em !important;
+    left: 25em !important;
 }
 
 .next-prev{

@@ -1,5 +1,5 @@
 .App {
-  max-width: 50em;
+  max-width: 95em;
   margin: 0 auto;
   text-align: center;
 }
@@ -8,17 +8,18 @@
 .canvasbox {
     border-radius: 3px;
     margin-right: 10px;
-    width: 300px;
+    width: 500px;
     height: 300px;
     border-bottom: 3px solid rgb(0, 0, 0), 244, 252);
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 #00000030;
-  background: #333;
-
+    background: #333;
 }
+
 
 /* .navbar-header {
     background-color: #F16E10;
   } */
+
 
 
 #static_img {

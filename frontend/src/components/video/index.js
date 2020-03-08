@@ -7,10 +7,11 @@ import ReactDOM from 'react-dom';
 import Question from '../App/Question';
 import MainNav from '../App/MainNav';
 import ImageCarousel from './carousel';
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 class Video extends React.Component {
   
-    sign_images = [{
+   sign_images = [{
           "name":"A",
           "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/A.jpg?raw=true"
         },
@@ -56,7 +57,7 @@ class Video extends React.Component {
         },
         {
           "name":"L",
-          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/M.jpg?raw=true"
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/L.jpg?raw=true"
         },
         {
           "name":"M",
@@ -115,8 +116,7 @@ class Video extends React.Component {
           "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/Z.jpg?raw=true"
         },
 
-    ]
-
+      ]
     constructor(props) {
         super(props);
         this.state = { 
@@ -130,8 +130,6 @@ class Video extends React.Component {
     
     model = null;
     
-    makeRequest = true;
-
     runDetection() {
         const video = document.getElementById("webcam");
         let canvas = document.getElementById("canvas");
@@ -183,7 +181,7 @@ class Video extends React.Component {
                }
             }
             
-            // console.log("Predictions: ", predictions);
+            console.log("Predictions: ", predictions);
             this.model.renderPredictions(predictions, canvas, context, video);
             requestAnimationFrame(this.runDetection.bind(this));
         });
@@ -214,6 +212,7 @@ class Video extends React.Component {
     
     myCallback = (data) =>{
       this.setState({ selected_image: data});
+      debugger;
     }
     
     render() {
@@ -222,22 +221,22 @@ class Video extends React.Component {
         for(i = 65; i < 91; i=i+1) {
           alph[i-65] = String.fromCharCode(i);
         };
-      
-
+        const percentage = (((((this.state.selected_image.name).charCodeAt(0))-64)/26)*100);
+        const correct_val = this.state.selected_image.name
         return (
             <div>
-              {/* <div>
-                    <MainNav/> 
-                </div> */}
-                <div class container>
+                <div className container>
                   <div className = "row">
-                    <div className="col-md-12">
-                    <div className="text-xs font-weight-bold text-uppercase mb-1">
-                      <h1>SIGN AI</h1>
+                    <div className="col mr-12">
+                    <div className="text-xs font-weight-bold  mb-1">
+                      <h1>SignAI</h1>
                       </div>
                 </div>
                 </div>
                 </div>
+                <div>
+                  <ProgressBar className="myProgress" active now={Math.floor(percentage)} label={`${Math.floor(percentage)}%`} />
+                  </div>
                 <div className="row mt-4">
                 <div className="col-md-4 mb-4">
               <div className="card border-left-primary shadow h-100 py-2">
@@ -291,7 +290,7 @@ class Video extends React.Component {
             <div className="col-md-6">
               <div className="card shadow mb-4">
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 className="m-0 font-weight-bold text-primary">Replicate Sign</h6>
+                <h6 className="m-0 font-weight-bold text-primary">Try it Yourself </h6>
                 </div>
                 <div className="card-body">
                 <video className="videobox  border canvasbox" autoPlay="autoPlay" id="webcam"></video>
@@ -303,7 +302,7 @@ class Video extends React.Component {
             <div className="col-md-6">
               <div className="card shadow mb-4">
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 className="m-0 font-weight-bold text-primary">Sign</h6>
+                <h6 className="m-0 font-weight-bold text-primary">Reference Sign</h6>
 
                 </div>
                 <div className="card-body">
@@ -320,10 +319,13 @@ class Video extends React.Component {
               <div className="card border-left-success shadow h-200 py-2">
                 <div className="card-body next-prev">
                   <div className="row no-gutters align-items-center">
-                    <div className="col mr-2">
+                    <div className="col mr-2"
+                    >
                       <div>
                       <Question content="Complete the sign for the following letter: " />
-                      <div>{this.state.selected_image.name}</div>
+                      <div>
+                      <h1>{this.state.selected_image.name}</h1>
+                      </div>
                       </div>
                     </div>
                     <div className="col-auto">
@@ -338,6 +340,7 @@ class Video extends React.Component {
             </div>
             </div>
             </div>
+            
 
             
         );
