@@ -11,7 +11,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 
 class Video extends React.Component {
   
-    sign_images = [{
+   sign_images = [{
           "name":"A",
           "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/A.jpg?raw=true"
         },
@@ -116,8 +116,7 @@ class Video extends React.Component {
           "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/Z.jpg?raw=true"
         },
 
-    ]
-
+      ]
     constructor(props) {
         super(props);
         this.state = { 
@@ -129,8 +128,6 @@ class Video extends React.Component {
     
     model = null;
     
-    makeRequest = true;
-
     runDetection() {
         const video = document.getElementById("webcam");
         let canvas = document.getElementById("canvas");
@@ -148,30 +145,19 @@ class Video extends React.Component {
                 // get the image data from the canvas object
                 const dataURL = canvas.toDataURL();
 
-                
-               
-               console.log("Try");
-               
-               if (this.makeRequest){
-                 // set the source of the img tag
-                //  const img = document.getElementById('thumbnail_img');
-                //  img.setAttribute('src', dataURL);
+                // set the source of the img tag
+                // const img = document.getElementById('thumbnail_img');
+                // img.setAttribute('src', dataURL);
 
-                  console.log("Reuqets Made");
-                  axios.post("http://localhost:3000/post_image", { "img": dataURL })
-                      .then((response) => {
-                          console.log("The file is successfully uploaded");
-                      }).catch((error) => {
-                  });
-                  this.makeRequest = false;
-                  
-                  setTimeout(() => {
-                    this.makeRequest = true;
-                  }, 4000);
-               }
+                // axios.post("http://localhost:3000/post_image", { "img": dataURL })
+                //     .then((response) => {
+                //         console.log("The file is successfully uploaded");
+                //     }).catch((error) => {
+                //     });
+                
             }
             
-            // console.log("Predictions: ", predictions);
+            console.log("Predictions: ", predictions);
             this.model.renderPredictions(predictions, canvas, context, video);
             requestAnimationFrame(this.runDetection.bind(this));
         });
@@ -202,6 +188,7 @@ class Video extends React.Component {
     
     myCallback = (data) =>{
       this.setState({ selected_image: data});
+      debugger;
     }
     
     render() {
@@ -211,6 +198,7 @@ class Video extends React.Component {
           alph[i-65] = String.fromCharCode(i);
         };
         const percentage = (((((this.state.selected_image.name).charCodeAt(0))-64)/26)*100);
+        const correct_val = this.state.selected_image.name
         return (
             <div>
                 <div className container>

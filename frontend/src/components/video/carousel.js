@@ -12,7 +12,8 @@ class ImageCarousel extends React.Component {
     }
     
     render() {
-
+        
+        
         const handleSelect = (selectedIndex, e) => {
             this.props.callbackFromParent(this.props.imageList[selectedIndex]);
         };
