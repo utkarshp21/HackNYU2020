@@ -12,16 +12,109 @@ class Video extends React.Component {
   
    sign_images = [{
           "name":"A",
-          "image":"https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/A.jpg?raw=true"
         },
         {
           "name":"B",
-          "image":"https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/B.jpg?raw=true"
         },
         {
           "name":"C",
-          "image":"https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg"
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/C.jpg?raw=true"
         },
+        {
+          "name":"D",
+          "image": "https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/D.jpg?raw=true"
+        },
+        {
+          "name":"E",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/E.jpg?raw=true"
+        },
+        {
+          "name":"F",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/F.jpg?raw=true"
+        },
+        {
+          "name":"G",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/G.jpg?raw=true"
+        },
+        {
+          "name":"H",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/H.jpg?raw=true"
+        },
+        {
+          "name":"I",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/I.jpg?raw=true"
+        },
+        {
+          "name":"J",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/J.jpg?raw=true"
+        },
+        {
+          "name":"K",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/K.jpg?raw=true"
+        },
+        {
+          "name":"L",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/M.jpg?raw=true"
+        },
+        {
+          "name":"M",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/M.jpg?raw=true"
+        },
+        {
+          "name":"N",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/N.jpg?raw=true"
+        },
+        {
+          "name":"O",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/O.jpg?raw=true"
+        },
+        {
+          "name":"P",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/P.jpg?raw=true"
+        },
+        {
+          "name":"Q",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/Q.jpg?raw=true"
+        },
+        {
+          "name":"R",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/R.jpg?raw=true"
+        },
+        {
+          "name":"S",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/S.jpg?raw=true"
+        },
+        {
+          "name":"T",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/T.jpg?raw=true"
+        },
+        {
+          "name":"U",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/U.jpg?raw=true"
+        },
+        {
+          "name":"V",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/V.jpg?raw=true"
+        },
+        {
+          "name":"W",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/W.jpg?raw=true"
+        },
+        {
+          "name":"X",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/X.jpg?raw=true"
+        },
+        {
+          "name":"Y",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/Y.jpg?raw=true"
+        },
+        {
+          "name":"Z",
+          "image":"https://github.com/utkarshp21/HackNYU2020/blob/master/Alphabet%20Reference/Z.jpg?raw=true"
+        },
+
       ]
     constructor(props) {
         super(props);
@@ -205,7 +298,7 @@ class Video extends React.Component {
                   <div className="row no-gutters align-items-center">
                     <div className="col mr-2">
                       <div>
-                      <Question content="Do the sign for the following letter: " />
+                      <Question content="Complete the sign for the following letter: " />
                       <div>{this.state.selected_image.name}</div>
                       </div>
                     </div>

@@ -6,11 +6,11 @@ class MainNav extends Component {
   render() {
     return (
       <Navbar>
-        {/* <Navbar.Header>
+        <Navbar.Header>
           <Navbar.Brand>
             <a href="#">React-Bootstrap</a>
           </Navbar.Brand>
-        </Navbar.Header> */}
+        </Navbar.Header>
         <Nav>
           <NavItem eventKey={1} href="#">Link</NavItem>
           <NavItem eventKey={2} href="#">Link</NavItem>
