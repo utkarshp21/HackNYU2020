@@ -123,6 +123,8 @@ class Video extends React.Component {
           selected_image : this.sign_images[0],
           total_questions : this.sign_images.length,
           correct_count: 0,
+          recoginition_response:null, 
+
         };
     }
     
@@ -137,21 +139,30 @@ class Video extends React.Component {
 
         this.model.detect(video).then(predictions => {   
             
-            if(predictions.length !== 0){
+            if(predictions.length == 1){
                 // get the canvas context for drawing
                 let screenshot_context = canvas.getContext('2d');
+
 
                 // draw the video contents into the canvas x, y, width, height
                 screenshot_context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
                 // get the image data from the canvas object
-                const dataURL = canvas.toDataURL();
-
-                
-               
+    
                console.log("Try");
                
                if (this.makeRequest){
+
+                 let ctx = canvas.getContext('2d');
+                 ctx.drawImage(video, predictions[0]['bbox'][0], predictions[0]['bbox'][1], predictions[0]['bbox'][2] + 15 , predictions[0]['bbox'][3] + 15, 0, 0, canvas.width, canvas.height)
+                 const dataURL = canvas.toDataURL('image/png');
+                 
+                 
+                  //  const w = window.open('about:blank', 'image from canvas');
+                  //  w.document.write("<img src='" + dataURL + "' alt='from canvas'/>");
+                  //  console.log('Saved!');
+                 
+
                  // set the source of the img tag
                 //  const img = document.getElementById('thumbnail_img');
                 //  img.setAttribute('src', dataURL);
@@ -159,7 +170,9 @@ class Video extends React.Component {
                   console.log("Reuqets Made");
                   axios.post("http://localhost:3000/post_image", { "img": dataURL })
                       .then((response) => {
-                          console.log("The file is successfully uploaded");
+                        console.log(response);
+                        this.state.recoginition_response = response.data.images[0].classifiers[1].classes;
+                        debugger;
                       }).catch((error) => {
                   });
                   this.makeRequest = false;
@@ -188,7 +201,7 @@ class Video extends React.Component {
     componentDidMount() {
         // Load the model.
         const modelParams = {
-            flipHorizontal: true,   // flip e.g for video  
+            flipHorizontal: false,   // flip e.g for video  
             maxNumBoxes: 20,        // maximum number of boxes to detect
             iouThreshold: 0.5,      // ioU threshold for non-max suppression
             scoreThreshold: 0.6,    // confidence threshold for predictions.
