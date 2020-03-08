@@ -123,13 +123,15 @@ class Video extends React.Component {
           selected_image : this.sign_images[0],
           total_questions : this.sign_images.length,
           correct_count: 0,
-          recoginition_response:null, 
+          class:[], 
 
         };
     }
     
     model = null;
     
+    makeRequest = true;
+
     runDetection() {
         const video = document.getElementById("webcam");
         let canvas = document.getElementById("canvas");
@@ -149,7 +151,7 @@ class Video extends React.Component {
     
                console.log("Try");
                
-               if (this.makeRequest){
+               if(this.makeRequest){
 
                  let ctx = canvas.getContext('2d');
                  ctx.drawImage(video, predictions[0]['bbox'][0], predictions[0]['bbox'][1], predictions[0]['bbox'][2] + 15 , predictions[0]['bbox'][3] + 15, 0, 0, canvas.width, canvas.height)
@@ -164,13 +166,12 @@ class Video extends React.Component {
                  // set the source of the img tag
                 //  const img = document.getElementById('thumbnail_img');
                 //  img.setAttribute('src', dataURL);
-
                   console.log("Reuqets Made");
                   axios.post("http://localhost:3000/post_image", { "img": dataURL })
                       .then((response) => {
                         console.log(response);
-                        this.state.recoginition_response = response.data.images[0].classifiers[1].classes;
-                        debugger;
+                        this.setState({ class: response.data.images[0].classifiers[1].classes });
+
                       }).catch((error) => {
                   });
                   this.makeRequest = false;
@@ -181,7 +182,7 @@ class Video extends React.Component {
                }
             }
             
-            console.log("Predictions: ", predictions);
+            // console.log("Predictions: ", predictions);
             this.model.renderPredictions(predictions, canvas, context, video);
             requestAnimationFrame(this.runDetection.bind(this));
         });
@@ -212,7 +213,6 @@ class Video extends React.Component {
     
     myCallback = (data) =>{
       this.setState({ selected_image: data});
-      debugger;
     }
     
     render() {
@@ -244,7 +244,7 @@ class Video extends React.Component {
                   <div className="row no-gutters align-items-center">
                     <div className="col mr-2">
                       <div className="text-xs font-weight-bold text-success text-uppercase mb-1">Correct</div>
-                      <div className="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                      <div className="h5 mb-0 font-weight-bold text-gray-800">{this.state.correct_count}</div>
                     </div>
                     <div className="col-auto">
                       <i className="fas fa-calendar fa-2x text-gray-300"></i>
@@ -260,7 +260,7 @@ class Video extends React.Component {
                   <div className="row no-gutters align-items-center">
                     <div className="col mr-2">
                       <div className="text-xs font-weight-bold text-danger text-uppercase mb-1">Incorrect</div>
-                      <div className="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                      <div className="h5 mb-0 font-weight-bold text-gray-800">{this.state.incorrect}</div>
                     </div>
                     <div className="col-auto">
                       <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -293,7 +293,7 @@ class Video extends React.Component {
                 <h6 className="m-0 font-weight-bold text-primary">Try it Yourself </h6>
                 </div>
                 <div className="card-body">
-                <video className="videobox  border canvasbox" autoPlay="autoPlay" id="webcam"></video>
+                <video className="videobox  border canvasbox"  autoPlay="autoPlay" id="webcam"></video>
                 <canvas id="canvas" className="border canvasbox"></canvas>
                 {/* <img id="thumbnail_img"></img>  */}
                 </div>           
@@ -306,7 +306,7 @@ class Video extends React.Component {
 
                 </div>
                 <div className="card-body">
-                  <ImageCarousel imageList={this.sign_images} callbackFromParent={this.myCallback}></ImageCarousel>
+                  <ImageCarousel imageList={this.sign_images} imgResponse={this.state.class} callbackFromParent={this.myCallback}></ImageCarousel>
                 {/* <img  id = "static_img" src="https://www.hbo.com/content/dam/hbodata/series/game-of-thrones/episodes/1/game-of-thrones-1-1920x1080.jpg/_jcr_content/renditions/cq5dam.web.1200.675.jpeg" className="img-thumbnail" alt="Responsive image"></img> */}
                 {/* <img id="thumbnail_img"></img>  */}
                 </div>
