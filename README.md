@@ -1,5 +1,7 @@
 # HackNYU2020
 
+![Logo](https://i.ibb.co/kQnbRyk/Sign-AI-thumbnail.png)
+
 ## Inspiration
 The goal of this project is to provide an interactive, accessible learning platform for users to learn American Sign Language. We were largely inspired by popular apps like Duolingo and the possibility of integrating intelligent vision systems in education.
 
